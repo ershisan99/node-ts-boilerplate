@@ -1,0 +1,36 @@
+{
+  "name": "my-app",
+  "type": "module",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "scripts": {
+    "start": "node dist/main.js",
+    "start:dev": "nodemon --ext js,ts,json,env --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' src/main.ts",
+    "build": "tsc --project tsconfig.build.json",
+    "build:clean": "rm -rf tsconfig.build.tsbuildinfo && rm -rf ./dist && pnpm run build",
+    "lint": "eslint --ext .ts,.js .",
+    "lint:fix": "eslint --fix --ext .ts,.js .",
+    "format": "prettier \"./**\" --write --ignore-unknown",
+    "format:check": "prettier \"./**\" --ignore-unknown --check"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.5",
+    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/parser": "^7.5.0",
+    "cross-env": "^7.0.3",
+    "eslint": "8.57.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-tsdoc": "^0.2.14",
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5",
+    "supertest": "^6.2.2",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^5.4.4"
+  }
+}
